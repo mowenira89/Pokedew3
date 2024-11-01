@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://kt21dfpgqk50"]
+
+[ext_resource type="Script" path="res://Assets/Forage/forage_node.gd" id="1_chme1"]
+
+[node name="ForageNode" type="Node2D"]
+script = ExtResource("1_chme1")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InvData" load_steps=2 format=3 uid="uid://6d1saj3xwcog"]
+
+[ext_resource type="Script" path="res://Assets/Inventory/Scripts/InvData.gd" id="1_4oi1n"]
+
+[resource]
+script = ExtResource("1_4oi1n")
+inv = Array[Resource("res://Assets/Items/Item.gd")]([null, null, null, null, null, null, null, null, null, null])
+inv_size = 10

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=3 format=3 uid="uid://dq73bd5jbijnx"]
+
+[ext_resource type="Script" path="res://Assets/Shared/Effects/Effect.gd" id="1_quu40"]
+[ext_resource type="Script" path="res://Assets/Items/Tool.gd" id="1_s1uvy"]
+
+[resource]
+script = ExtResource("1_s1uvy")
+type = 10
+data_name = "squirt-bottle"
+name = "Squirt Bottle"
+description = "A squirt bottle to water plants with. Allows Pokemon to water crops."
+effects = Array[ExtResource("1_quu40")]([])
+max_stack = 1

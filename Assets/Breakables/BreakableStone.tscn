@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfqkp1xlaidbn"]
+
+[ext_resource type="Script" path="res://Assets/Breakables/Scripts/BreakableStone.gd" id="1_dne2g"]
+[ext_resource type="Texture2D" uid="uid://dw7j3vv62d6k8" path="res://Assets/pokedew3 tilesets/rocks.png" id="2_ugesh"]
+[ext_resource type="PackedScene" uid="uid://py7apefffby" path="res://Assets/Shared/Loot/LootDropper.tscn" id="3_2wkmt"]
+[ext_resource type="PackedScene" uid="uid://kt21dfpgqk50" path="res://Assets/Forage/ForageNode.tscn" id="4_mkaps"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_effff"]
+radius = 20.025
+
+[node name="BreakableStone" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 9
+script = ExtResource("1_dne2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ugesh")
+hframes = 5
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_effff")
+
+[node name="LootDropper" parent="." instance=ExtResource("3_2wkmt")]
+
+[node name="ForageNode" parent="." instance=ExtResource("4_mkaps")]
+forage_area = "stone"

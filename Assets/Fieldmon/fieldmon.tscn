@@ -1,0 +1,219 @@
+[gd_scene load_steps=10 format=3 uid="uid://uptp3brhx82a"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/FieldMon.gd" id="1_12owu"]
+[ext_resource type="Texture2D" uid="uid://drfhehx4xjftg" path="res://Assets/Sprites/Pokemon/bulbasaur.png" id="2_okeli"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i7ly0"]
+radius = 16.1245
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dpf07"]
+radius = 241.828
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_og523"]
+radius = 48.0416
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_noy86"]
+bg_color = Color(0, 0.941176, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eulg1"]
+bg_color = Color(0.6, 0.65098, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4633"]
+bg_color = Color(0.847059, 0, 0.32549, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ttpr"]
+radius = 596.021
+
+[node name="FieldMon" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_12owu")
+
+[node name="Mon" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("2_okeli")
+
+[node name="PhysicalCollider" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_i7ly0")
+
+[node name="WorkArea" type="Area2D" parent="." groups=["FieldmonWorkArea"]]
+visible = false
+y_sort_enabled = true
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorkArea"]
+shape = SubResource("CircleShape2D_dpf07")
+
+[node name="TouchArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+visible = false
+shape = SubResource("CircleShape2D_og523")
+
+[node name="WorkTimer" type="Timer" parent="."]
+
+[node name="work_pause" type="Timer" parent="."]
+one_shot = true
+
+[node name="HUD" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+
+[node name="HP" type="ProgressBar" parent="HUD"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -66.0
+offset_right = -14.0
+offset_bottom = -25.0
+tooltip_text = "HP"
+mouse_filter = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_noy86")
+fill_mode = 3
+show_percentage = false
+
+[node name="Energy" type="ProgressBar" parent="HUD"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -77.0
+offset_right = 8.0
+offset_bottom = -33.0
+tooltip_text = "Energy"
+mouse_filter = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_eulg1")
+fill_mode = 3
+show_percentage = false
+
+[node name="Happiness" type="ProgressBar" parent="HUD"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = -67.0
+offset_right = 30.0
+offset_bottom = -27.0
+tooltip_text = "Happiness"
+mouse_filter = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_v4633")
+fill_mode = 3
+show_percentage = false
+
+[node name="ProduceTimer" type="Timer" parent="."]
+
+[node name="Options" type="ColorRect" parent="."]
+visible = false
+offset_left = 35.0
+offset_top = -17.0
+offset_right = 152.0
+offset_bottom = 75.0
+color = Color(0.12549, 0.368627, 1, 0.392157)
+
+[node name="GridContainer" type="GridContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Return" type="Button" parent="Options/GridContainer"]
+layout_mode = 2
+text = "Return"
+
+[node name="Task" type="Button" parent="Options/GridContainer"]
+layout_mode = 2
+text = "Task"
+
+[node name="Stats" type="Button" parent="Options/GridContainer"]
+layout_mode = 2
+text = "Stats"
+
+[node name="Inv" type="Button" parent="Options/GridContainer"]
+layout_mode = 2
+text = "Inv"
+
+[node name="Follow" type="Button" parent="Options/GridContainer"]
+layout_mode = 2
+text = "Follow"
+
+[node name="Nothing" type="Button" parent="Options/GridContainer"]
+layout_mode = 2
+
+[node name="Tasks" type="ColorRect" parent="Options"]
+visible = false
+layout_mode = 0
+offset_left = 120.0
+offset_top = -29.0
+offset_right = 248.0
+offset_bottom = 64.0
+color = Color(0.266667, 0.427451, 1, 1)
+
+[node name="GridContainer" type="GridContainer" parent="Options/Tasks"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Rest" type="Button" parent="Options/Tasks/GridContainer"]
+layout_mode = 2
+text = "Rest"
+
+[node name="Farm" type="Button" parent="Options/Tasks/GridContainer"]
+layout_mode = 2
+text = "Farm"
+
+[node name="Forage" type="Button" parent="Options/Tasks/GridContainer"]
+layout_mode = 2
+text = "Forage"
+
+[node name="Dig" type="Button" parent="Options/Tasks/GridContainer"]
+layout_mode = 2
+text = "Dig"
+
+[node name="Perform" type="Button" parent="Options/Tasks/GridContainer"]
+layout_mode = 2
+text = "Perform"
+
+[node name="Inv" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 101.0
+offset_top = 173.0
+offset_right = 101.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+
+[node name="PerformanceArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PerformanceArea"]
+shape = SubResource("CircleShape2D_5ttpr")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="body_entered" from="WorkArea" to="." method="_on_work_area_body_entered"]
+[connection signal="body_exited" from="WorkArea" to="." method="_on_work_area_body_exited"]
+[connection signal="input_event" from="TouchArea" to="." method="_on_touch_area_input_event"]
+[connection signal="mouse_entered" from="TouchArea" to="." method="_on_touch_area_mouse_entered"]
+[connection signal="mouse_exited" from="TouchArea" to="." method="_on_touch_area_mouse_exited"]
+[connection signal="timeout" from="WorkTimer" to="." method="_on_work_timer_timeout"]
+[connection signal="pressed" from="Options/GridContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Options/GridContainer/Task" to="." method="_on_task_pressed"]
+[connection signal="pressed" from="Options/GridContainer/Inv" to="." method="_on_inv_pressed"]
+[connection signal="pressed" from="Options/GridContainer/Follow" to="." method="_on_follow_pressed"]
+[connection signal="pressed" from="Options/Tasks/GridContainer/Rest" to="." method="_on_rest_pressed"]
+[connection signal="pressed" from="Options/Tasks/GridContainer/Farm" to="." method="_on_farm_pressed"]
+[connection signal="pressed" from="Options/Tasks/GridContainer/Forage" to="." method="_on_forage_pressed"]
+[connection signal="pressed" from="Options/Tasks/GridContainer/Dig" to="." method="_on_dig_pressed"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BreakableData" load_steps=2 format=3 uid="uid://kgo1c7x73ew7"]
+
+[ext_resource type="Script" path="res://Assets/Resources/BreakableData.gd" id="1_6e8kr"]
+
+[resource]
+script = ExtResource("1_6e8kr")
+name = "Tree2"
+material = 0
+tool_type = Array[int]([0, 1])

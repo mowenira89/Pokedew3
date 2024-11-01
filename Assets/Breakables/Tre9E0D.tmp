@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://lvlv07ceixwe"]
+
+[ext_resource type="Texture2D" uid="uid://yb00faqpl4cd" path="res://Assets/pokedew3 tilesets/trees.png" id="1_5gqt2"]
+[ext_resource type="Script" path="res://Assets/Breakables/Scripts/BreakableTree.gd" id="1_kbk75"]
+[ext_resource type="PackedScene" uid="uid://cg7ejmoodyw6w" path="res://Assets/Shared/TransparencyArea.tscn" id="2_1fq5i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kupqf"]
+
+[sub_resource type="Animation" id="Animation_eftje"]
+resource_name = "canopyfall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Canopy:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Canopy:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.566667, 1.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pj3gn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Canopy:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Canopy:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vlmrk"]
+_data = {
+"RESET": SubResource("Animation_pj3gn"),
+"canopyfall": SubResource("Animation_eftje")
+}
+
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_kbk75")
+
+[node name="Stump" type="Sprite2D" parent="."]
+texture = ExtResource("1_5gqt2")
+region_enabled = true
+region_rect = Rect2(33, 183, 89, 62)
+
+[node name="Canopy" type="Sprite2D" parent="."]
+position = Vector2(1, -21)
+texture = ExtResource("1_5gqt2")
+offset = Vector2(2, -48)
+region_enabled = true
+region_rect = Rect2(11, 10, 139, 143)
+
+[node name="Area2D" parent="Canopy" instance=ExtResource("2_1fq5i")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Canopy/Area2D"]
+polygon = PackedVector2Array(-22, -4, -50, -29, -16, -95, 9, -97, 45, -29, 28, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_kupqf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vlmrk")
+}

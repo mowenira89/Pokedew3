@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Berry" load_steps=3 format=3 uid="uid://b77t40bfm42mq"]
+
+[ext_resource type="Script" path="res://Assets/Shared/Effects/Effect.gd" id="1_51ue8"]
+[ext_resource type="Script" path="res://Assets/Items/Berry.gd" id="2_7enea"]
+
+[resource]
+script = ExtResource("2_7enea")
+health_restored = 0
+energy_restored = 5
+happiness_restored = 5
+flavor = Array[int]([2])
+data_name = "aspear"
+name = "Aspear"
+description = "A sour berry that cures frostbite."
+effects = Array[ExtResource("1_51ue8")]([])
+max_stack = 99
+organic = true

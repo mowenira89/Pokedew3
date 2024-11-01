@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpqyl3wg4qmee"]
+
+[ext_resource type="Script" path="res://Assets/00Global/Clock.gd" id="1_8hril"]
+
+[node name="Clock" type="Node"]
+script = ExtResource("1_8hril")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

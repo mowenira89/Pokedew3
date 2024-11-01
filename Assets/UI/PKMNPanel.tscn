@@ -1,0 +1,123 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgr4k6tv8n217"]
+
+[ext_resource type="Script" path="res://Assets/UI/scripts/PKMNPanel.gd" id="1_3pgie"]
+
+[node name="PKMNPanel" type="Control"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3pgie")
+
+[node name="Border" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 665.0
+offset_bottom = 178.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Border"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 659.0
+offset_bottom = 166.0
+color = Color(0.45098, 0.588235, 1, 1)
+
+[node name="Image" type="Sprite2D" parent="Border/ColorRect"]
+position = Vector2(85, 70)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Border/ColorRect"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 11.0
+offset_right = 629.0
+offset_bottom = 139.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Border/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Border/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Bulbasaur "
+metadata/_edit_use_anchors_ = true
+
+[node name="LVL" type="Label" parent="Border/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "     lvl5"
+
+[node name="MarginContainer" type="MarginContainer" parent="Border/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="HP" type="ProgressBar" parent="Border/ColorRect/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Happiness" type="ProgressBar" parent="Border/ColorRect/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Exp" type="ProgressBar" parent="Border/ColorRect/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Options" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 664.0
+offset_top = 1.0
+offset_right = 832.0
+offset_bottom = 177.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Options"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 15.0
+offset_right = 155.0
+offset_bottom = 166.0
+color = Color(0.45098, 0.588235, 1, 1)
+
+[node name="GridContainer" type="GridContainer" parent="Options/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -31.5
+offset_right = 52.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Stat" type="Button" parent="Options/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Stats"
+
+[node name="Swap" type="Button" parent="Options/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Swap"
+
+[node name="Go" type="Button" parent="Options/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Go!"
+
+[node name="Rename" type="Button" parent="Options/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Rename"
+
+[node name="Give" type="Button" parent="Options/ColorRect/GridContainer"]
+layout_mode = 2
+text = "Give"
+
+[connection signal="gui_input" from="Border/ColorRect" to="." method="_on_color_rect_gui_input"]
+[connection signal="pressed" from="Options/ColorRect/GridContainer/Stat" to="." method="_on_stat_pressed"]
+[connection signal="pressed" from="Options/ColorRect/GridContainer/Swap" to="." method="_on_swap_pressed"]
+[connection signal="pressed" from="Options/ColorRect/GridContainer/Go" to="." method="_on_go_pressed"]

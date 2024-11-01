@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Sapling" load_steps=3 format=3 uid="uid://m0c018fbcclu"]
+
+[ext_resource type="Script" path="res://Assets/Shared/Effects/Effect.gd" id="1_fndx0"]
+[ext_resource type="Script" path="res://Assets/Items/Sapling.gd" id="2_qy51o"]
+
+[resource]
+script = ExtResource("2_qy51o")
+species = "Tree2"
+data_name = "acorn"
+name = "Acorn"
+description = "Grows into a tall tree."
+effects = Array[ExtResource("1_fndx0")]([])
+max_stack = 99
+organic = true

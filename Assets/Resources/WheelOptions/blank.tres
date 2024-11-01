@@ -1,0 +1,10 @@
+[gd_resource type="AtlasTexture" script_class="WheelOption" load_steps=3 format=3 uid="uid://ccgorknx26bv"]
+
+[ext_resource type="Texture2D" uid="uid://bdbbbjgj1g6xv" path="res://Assets/Sprites/tools.png" id="1_24jwd"]
+[ext_resource type="Script" path="res://Assets/UI/scripts/wheel_options.gd" id="2_sxsp5"]
+
+[resource]
+atlas = ExtResource("1_24jwd")
+region = Rect2(459.5, 0, 105.5, 115)
+script = ExtResource("2_sxsp5")
+item_name = "Blank"

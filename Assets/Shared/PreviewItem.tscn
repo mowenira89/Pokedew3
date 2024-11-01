@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://d14nmdw08rhpr"]
+
+[ext_resource type="Script" path="res://Assets/Shared/preview_item.gd" id="1_5fnfx"]
+
+[node name="PreviewItem" type="TextureRect"]
+script = ExtResource("1_5fnfx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 2

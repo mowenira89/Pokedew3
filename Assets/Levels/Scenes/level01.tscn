@@ -1,0 +1,31 @@
+[gd_scene load_steps=9 format=3 uid="uid://bl8wcca45kq3s"]
+
+[ext_resource type="Script" path="res://Assets/Levels/Level.gd" id="1_opels"]
+[ext_resource type="PackedScene" uid="uid://dwvm02y6hmsrl" path="res://Assets/Shared/tile_map.tscn" id="2_qdv5g"]
+[ext_resource type="PackedScene" uid="uid://b82hjti1vsba8" path="res://Assets/Player/Player.tscn" id="4_rpkwn"]
+[ext_resource type="PackedScene" uid="uid://qb0u1dnc2y15" path="res://Assets/Shared/Cursor/cursor.tscn" id="5_4pqk0"]
+[ext_resource type="Resource" uid="uid://m0c018fbcclu" path="res://Assets/Resources/Items/acorn.tres" id="6_7u51v"]
+[ext_resource type="PackedScene" uid="uid://cspi087wx4ay7" path="res://Assets/Items/Pickup.tscn" id="6_xe12e"]
+[ext_resource type="Script" path="res://Assets/Items/Item.gd" id="7_fnveg"]
+
+[sub_resource type="Resource" id="Resource_nioqe"]
+script = ExtResource("7_fnveg")
+data = ExtResource("6_7u51v")
+
+[node name="Node2D" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_opels")
+
+[node name="TileMap" parent="." instance=ExtResource("2_qdv5g")]
+z_index = -1
+layer_2/tile_data = PackedInt32Array(393228, 262146, 8, 262158, 262146, 8, 393219, 196610, 8, 327681, 196610, 8, 196610, 196610, 8, 327697, 589826, 7, 327698, 1179650, 7, 327699, 1179650, 6, 13, 5, 3, 16, 5, 3, 19, 5, 3, 65545, 7, 0, 65538, 7, 0, 458759, 65543, 0, 458757, 65543, 0, 524298, 196615, 0, 524300, 196615, 0, 524302, 196615, 0, 393231, 262151, 0, 327693, 262151, 0, 393230, 262151, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_rpkwn")]
+position = Vector2(267, 205)
+
+[node name="Cursor" parent="Player" instance=ExtResource("5_4pqk0")]
+position = Vector2(-267, -205)
+
+[node name="Pickup" parent="." instance=ExtResource("6_xe12e")]
+position = Vector2(484, 294)
+item = SubResource("Resource_nioqe")

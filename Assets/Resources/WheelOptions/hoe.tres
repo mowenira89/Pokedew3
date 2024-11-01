@@ -1,0 +1,10 @@
+[gd_resource type="AtlasTexture" script_class="WheelOption" load_steps=3 format=3 uid="uid://cmyp3207hp62m"]
+
+[ext_resource type="Texture2D" uid="uid://bdbbbjgj1g6xv" path="res://Assets/Sprites/tools.png" id="1_anad8"]
+[ext_resource type="Script" path="res://Assets/UI/scripts/wheel_options.gd" id="2_gyyq1"]
+
+[resource]
+atlas = ExtResource("1_anad8")
+region = Rect2(96, 0, 96, 115)
+script = ExtResource("2_gyyq1")
+item_name = "Hoe"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=3 format=3 uid="uid://lu3i001e7uoy"]
+
+[ext_resource type="Script" path="res://Assets/Shared/Effects/Effect.gd" id="1_ehcis"]
+[ext_resource type="Script" path="res://Assets/Items/Tool.gd" id="2_a41ul"]
+
+[resource]
+script = ExtResource("2_a41ul")
+type = 4
+data_name = "mallet"
+name = "Mallet"
+description = "Used in crafting. Increases Attck and Craft."
+effects = Array[ExtResource("1_ehcis")]([])
+max_stack = 1

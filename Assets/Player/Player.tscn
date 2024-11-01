@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://b82hjti1vsba8"]
+
+[ext_resource type="Script" path="res://Assets/Player/Scripts/Player.gd" id="1_fppxm"]
+[ext_resource type="Texture2D" uid="uid://dr50wryyerru7" path="res://Assets/Player/Hat_man/Hat_man1.png" id="1_hd7sn"]
+[ext_resource type="Texture2D" uid="uid://bjhtlex3lkimv" path="res://Assets/Player/Hat_man/Hat_man2.png" id="2_ful86"]
+[ext_resource type="Texture2D" uid="uid://bbabuliy2e81j" path="res://Assets/Player/Hat_man/Hat_man3.png" id="3_jvigq"]
+[ext_resource type="Texture2D" uid="uid://cr38wwlrklc1r" path="res://Assets/Player/Hat_man/Hat_man4.png" id="4_be02j"]
+[ext_resource type="Script" path="res://Assets/Shared/States/StateMachine.gd" id="5_v8yx4"]
+[ext_resource type="Script" path="res://Assets/Shared/States/Idle.gd" id="6_64r4x"]
+[ext_resource type="Script" path="res://Assets/Shared/States/Walk.gd" id="7_t822b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a68yj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hd7sn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hd7sn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ful86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jvigq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_be02j")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_axbib"]
+radius = 23.1948
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xuq3"]
+size = Vector2(144, 144)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+y_sort_enabled = true
+script = ExtResource("1_fppxm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1, -11)
+sprite_frames = SubResource("SpriteFrames_a68yj")
+animation = &"walk"
+offset = Vector2(1, -33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -26)
+shape = SubResource("CircleShape2D_axbib")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_v8yx4")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("6_64r4x")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("7_t822b")
+
+[node name="Range" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+position = Vector2(1, -24)
+shape = SubResource("RectangleShape2D_4xuq3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.8, 0.8)
+
+[connection signal="mouse_entered" from="Range" to="." method="_on_range_mouse_entered"]
+[connection signal="mouse_exited" from="Range" to="." method="_on_range_mouse_exited"]

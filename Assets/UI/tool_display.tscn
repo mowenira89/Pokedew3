@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://wyo5lisyqnjx"]
+
+[ext_resource type="Script" path="res://Assets/UI/scripts/tool_display.gd" id="1_8w6dv"]
+
+[node name="ToolDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8w6dv")

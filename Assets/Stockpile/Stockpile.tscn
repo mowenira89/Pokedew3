@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7qgcnoxvu0hv"]
+
+[ext_resource type="Script" path="res://Assets/Stockpile/Stockpile.gd" id="1_s7fdn"]
+[ext_resource type="Texture2D" uid="uid://cuiuoav6u5x2x" path="res://Assets/Stockpile/stockpile.png" id="2_uqjqc"]
+[ext_resource type="PackedScene" uid="uid://df4m2sdngqsri" path="res://Assets/Inventory/InventoryUI.tscn" id="3_s83e4"]
+
+[node name="Stockpile" type="Node2D" groups=["Stockpile"]]
+script = ExtResource("1_s7fdn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_uqjqc")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = -149.0
+offset_right = 316.0
+offset_bottom = -40.0
+
+[node name="InventoryUi" parent="Control/Panel" instance=ExtResource("3_s83e4")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1

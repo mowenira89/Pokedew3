@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://bbiswn45jvmcf"]
+
+[ext_resource type="Script" path="res://Assets/Shared/Effects/Effect.gd" id="1_aaroa"]
+[ext_resource type="Script" path="res://Assets/Items/Food.gd" id="2_1v5my"]
+
+[resource]
+script = ExtResource("2_1v5my")
+health_restored = 0
+energy_restored = 10
+happiness_restored = 20
+flavor = Array[int]([0, 5])
+data_name = "mushroom-balm"
+name = "Balm Mushroom"
+description = "A rare mushroom that gives off a nice fragrance. It can be sold at a high price to shops. "
+effects = Array[ExtResource("1_aaroa")]([])
+max_stack = 99
+organic = true
+burn_time = 0

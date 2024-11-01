@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Hoe" load_steps=3 format=3 uid="uid://b3ulfr5xh33do"]
+
+[ext_resource type="Script" path="res://Assets/Shared/Effects/Effect.gd" id="1_fq8v2"]
+[ext_resource type="Script" path="res://Assets/Items/Hoe.gd" id="2_iatv3"]
+
+[resource]
+script = ExtResource("2_iatv3")
+type = 0
+data_name = "hoe"
+name = "Hoe"
+description = "Its a hoe for farming. Allows Pokemon to farm."
+effects = Array[ExtResource("1_fq8v2")]([])
+max_stack = 99

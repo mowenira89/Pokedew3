@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://btwuan54k1pvy"]
+
+[ext_resource type="Script" path="res://Assets/Shared/Effects/Effect.gd" id="1_p8r51"]
+[ext_resource type="Script" path="res://Assets/Items/ItemData.gd" id="2_cwgv4"]
+
+[resource]
+script = ExtResource("2_cwgv4")
+data_name = "geode"
+name = "Geode"
+description = "May contain coal or mineral wealth."
+effects = Array[ExtResource("1_p8r51")]([])
+max_stack = 99
+organic = false
+burn_time = 0

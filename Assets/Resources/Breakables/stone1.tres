@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BreakableData" load_steps=2 format=3 uid="uid://dqluyvgsa71n3"]
+
+[ext_resource type="Script" path="res://Assets/Resources/BreakableData.gd" id="1_t1x1l"]
+
+[resource]
+script = ExtResource("1_t1x1l")
+name = "stone"
+material = 1
+tool_type = Array[int]([2])

@@ -1,0 +1,10 @@
+[gd_resource type="AtlasTexture" script_class="WheelOption" load_steps=3 format=3 uid="uid://dkmrpskm5vfnb"]
+
+[ext_resource type="Texture2D" uid="uid://bdbbbjgj1g6xv" path="res://Assets/Sprites/tools.png" id="1_70ory"]
+[ext_resource type="Script" path="res://Assets/UI/scripts/wheel_options.gd" id="2_2yesl"]
+
+[resource]
+atlas = ExtResource("1_70ory")
+region = Rect2(292.5, 23.5, 87, 91.5)
+script = ExtResource("2_2yesl")
+item_name = "Squirt Bottle"

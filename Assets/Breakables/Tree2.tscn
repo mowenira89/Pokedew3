@@ -1,0 +1,109 @@
+[gd_scene load_steps=11 format=3 uid="uid://byqlqih7gcgwg"]
+
+[ext_resource type="Script" path="res://Assets/Breakables/Scripts/BreakableTree2.gd" id="1_r21oa"]
+[ext_resource type="Texture2D" uid="uid://bt0gkreugcsmo" path="res://Assets/pokedew3 tilesets/treestardew.png" id="2_ll03g"]
+[ext_resource type="Texture2D" uid="uid://da0jibm61exap" path="res://Assets/pokedew3 tilesets/treestardew1.png" id="3_2sfgx"]
+[ext_resource type="PackedScene" uid="uid://py7apefffby" path="res://Assets/Shared/Loot/LootDropper.tscn" id="4_1s1tw"]
+[ext_resource type="PackedScene" uid="uid://cg7ejmoodyw6w" path="res://Assets/Shared/TransparencyArea.tscn" id="4_o5uuw"]
+[ext_resource type="PackedScene" uid="uid://kt21dfpgqk50" path="res://Assets/Forage/ForageNode.tscn" id="6_isw5k"]
+
+[sub_resource type="Animation" id="Animation_vpvum"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Canopy:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Canopy:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xemtb"]
+resource_name = "canopyfall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Canopy:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Canopy:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.533333, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2g3as"]
+_data = {
+"RESET": SubResource("Animation_vpvum"),
+"canopyfall": SubResource("Animation_xemtb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1tg5d"]
+radius = 16.0
+
+[node name="BreakableTree" type="StaticBody2D"]
+collision_layer = 9
+script = ExtResource("1_r21oa")
+
+[node name="Stump" type="Sprite2D" parent="."]
+texture = ExtResource("2_ll03g")
+hframes = 5
+frame = 1
+
+[node name="Canopy" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("3_2sfgx")
+offset = Vector2(-2, -124)
+
+[node name="Transparency" parent="Canopy" instance=ExtResource("4_o5uuw")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Canopy/Transparency"]
+polygon = PackedVector2Array(-5, -57, -46, -77, -61, -150, -9, -218, 10, -217, 46, -158, 48, -84)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2g3as")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 27)
+shape = SubResource("CircleShape2D_1tg5d")
+
+[node name="LootDropper" parent="." instance=ExtResource("4_1s1tw")]
+position = Vector2(0, 27)
+
+[node name="ForageNode" parent="." instance=ExtResource("6_isw5k")]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

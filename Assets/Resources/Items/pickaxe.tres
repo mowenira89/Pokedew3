@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=3 format=3 uid="uid://bv6xrccv3u3q5"]
+
+[ext_resource type="Script" path="res://Assets/Shared/Effects/Effect.gd" id="1_ct0cu"]
+[ext_resource type="Script" path="res://Assets/Items/Tool.gd" id="1_s810q"]
+
+[resource]
+script = ExtResource("1_s810q")
+type = 2
+data_name = "pickaxe"
+name = "Pickaxe"
+description = "A pickaxe for mining. +1 mining."
+effects = Array[ExtResource("1_ct0cu")]([])
+max_stack = 1

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://do8415s56cgs1"]
+
+[ext_resource type="Script" path="res://Assets/Shared/Effects/Effect.gd" id="1_n4ghn"]
+[ext_resource type="Script" path="res://Assets/Items/ItemData.gd" id="2_m6g5k"]
+
+[resource]
+script = ExtResource("2_m6g5k")
+data_name = "coal"
+name = "Coal"
+description = "Fuel for fire."
+effects = Array[ExtResource("1_n4ghn")]([])
+max_stack = 99
+organic = false
+burn_time = 100

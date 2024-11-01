@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tool" load_steps=3 format=3 uid="uid://c5ffdjepcpoh0"]
+
+[ext_resource type="Script" path="res://Assets/Items/Tool.gd" id="1_f0758"]
+[ext_resource type="Script" path="res://Assets/Shared/Effects/Effect.gd" id="1_jix80"]
+
+[resource]
+script = ExtResource("1_f0758")
+type = 1
+data_name = "axe"
+name = "Axe"
+description = "An axe for cutting wood. Allows Pokemon to forage for wood."
+effects = Array[ExtResource("1_jix80")]([])
+max_stack = 1

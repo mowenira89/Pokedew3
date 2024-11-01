@@ -1,0 +1,21 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpwf3sypnr4mf"]
+
+[ext_resource type="Script" path="res://Assets/UI/scripts/selection_wheel.gd" id="1_uve7t"]
+[ext_resource type="Texture2D" uid="uid://ccgorknx26bv" path="res://Assets/Resources/WheelOptions/blank.tres" id="2_of37u"]
+[ext_resource type="Texture2D" uid="uid://myqaqjjit13t" path="res://Assets/Resources/WheelOptions/axe.tres" id="3_cj7df"]
+[ext_resource type="Texture2D" uid="uid://cmyp3207hp62m" path="res://Assets/Resources/WheelOptions/hoe.tres" id="4_rppha"]
+[ext_resource type="Texture2D" uid="uid://otbgbfebcvw7" path="res://Assets/Resources/WheelOptions/pickaxe.tres" id="5_i7ykp"]
+[ext_resource type="Texture2D" uid="uid://dkmrpskm5vfnb" path="res://Assets/Resources/WheelOptions/squirt-bottle.tres" id="6_464nw"]
+
+[node name="SelectionWheel" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uve7t")
+background_color = Color(0.211765, 0.211765, 0.211765, 1)
+options = Array[Resource("res://Assets/UI/Scripts/wheel_options.gd")]([ExtResource("2_of37u"), ExtResource("3_cj7df"), ExtResource("4_rppha"), ExtResource("5_i7ykp"), ExtResource("6_464nw")])

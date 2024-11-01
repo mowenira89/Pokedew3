@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://msrjfhp686uj"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/PKMNScreen.gd" id="1_vhrub"]
+[ext_resource type="Texture2D" uid="uid://bjcl4qovlh16c" path="res://Assets/Sprites/back.png" id="2_7kqo5"]
+[ext_resource type="PackedScene" uid="uid://dn7psiyfgglfp" path="res://Assets/Scenes/stat_screen.tscn" id="3_ou42v"]
+
+[node name="PKMNScreen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.454902, 0.494118, 1, 1)
+script = ExtResource("1_vhrub")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 1700.0
+offset_top = 932.0
+offset_right = 1844.0
+offset_bottom = 1022.0
+texture_normal = ExtResource("2_7kqo5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+
+[node name="PKMNPanels" type="GridContainer" parent="HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+
+[node name="StatScreen" parent="HBoxContainer" instance=ExtResource("3_ou42v")]
+visible = false
+layout_mode = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
